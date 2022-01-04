@@ -8,11 +8,6 @@
     background: #000;
 }
 
-.buttons {
-    margin-top: 5px;
-    padding: 5px;
-}
-
 button:hover {
     background-color: tomato;
 }

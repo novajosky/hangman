@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/hangman.css" media="screen" ?></link>
-    <script src="js/hangman.js" defer></script>
-    <title>Hangman</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/hangman.css" media="screen" ?></link>
+  <script src="js/hangman.js" defer></script>
+  <title>Hangman</title>
 </head>
 <body>
-    <div class="intro">
-        <h1>Welcome to Hangman!</h1>
-        <h2>Choose from the letters below to figure out the secret word! You only get 10 tries to save the Avatar!</h2>
-    </div>
-    <div class="wrongguesses">Wrong Guesses: <span id="mistakes">0</span> of <span id="maxGuesses"></span></div>
+<div class="container">
+  <h1 class="text-center">Welcome to Hangman!</h1>
+  <h2>Choose from the letters below to figure out the secret word! You only get 10 tries to save the Avatar!</h2>
+  <div>Wrong Guesses: <span id='mistakes'>0</span> of <span id='maxWrong'></span></div>
+  <div class="text-center">
+    <img id='hangmanPic' src="./hmimages/hangman0.jpg" alt="hangman">
+    <p id="clue">Clue</p> 
+    <p id="wordPlace"></p>
     <div id="keyboard"></div>
-    <img id="hangmanPic" src="hmimages/hangman0.jpg" alt="hangman image"><br>
-    <div class="buttons">
-        <button id="Category">Change Category</button>
-        <button id="Hint">Hint</button>
-        <button id="Again">Play Again</button>
-        <button id="SecondPlayer">2 Player Mode</button>
-    </div>
+    <button id="hint">Hint</button>
+    <button class="btn btn-info" onClick="reset()">Reset</button>
+  </div> 
+</div>
 
 </body>
 </html>
