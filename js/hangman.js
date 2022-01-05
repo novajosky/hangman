@@ -18,23 +18,23 @@ let getHint = document.getElementById("hint");
 let showClue = document.getElementById("clue");
 
 function randomWord() {
-  answer = movies[Math.floor(Math.random() * movies.length)];
+    answer = movies[Math.floor(Math.random() * movies.length)];
 }
 
 function generateButtons() {
-  let lettersHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
-    `
-      <button
-        class="btn btn-lg btn-primary m-2"
-        id='` + letter + `'
-        onClick="handleGuess('` + letter + `')"
-      >
-        ` + letter + `
-      </button>
-    `).join('');
-
-  document.getElementById('keyboard').innerHTML = lettersHTML;
-}
+    let lettersHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
+      `
+        <button
+          class="btn btn-lg btn-primary m-2"
+          id='` + letter + `'
+          onClick="handleGuess('` + letter + `')"
+        >
+          ` + letter + `
+        </button>
+      `).join('');
+  
+    document.getElementById('keyboard').innerHTML = lettersHTML;
+  }
 
 /*----- event listeners -----*/
 
@@ -82,6 +82,12 @@ function updateMistakes() {
   document.getElementById('mistakes').innerHTML = mistakes;
 }
 
+hint.onclick = function() {
+    let hints = ["red or blue pill", "Tom Hanks", "Tony Stark", "Peter Parker", "whatchu gonna do", "Tarantino", "Alrighty Then!", "Just Tap it in", "Daniel Larusso"];
+    let movieIndex = movies.indexOf(answer);
+    showClue.innerHTML = "Clue: " + hints[movieIndex];
+};
+
 function reset() {
   mistakes = 0;
   guessed = [];
@@ -91,6 +97,7 @@ function reset() {
   guessedWord();
   updateMistakes();
   generateButtons();
+  
 }
 
 document.getElementById('maxWrong').innerHTML = maxGuesses;
@@ -98,16 +105,3 @@ document.getElementById('maxWrong').innerHTML = maxGuesses;
 randomWord();
 generateButtons();
 guessedWord();
-
-//hint function
-
-hint.onclick = function() {
-    hints = [
-        ["red or blue pill", "Tom Hanks", "Tony Stark", "Peter Parker", "whatchu gonna do", "Tarantino", "Alrighty Then!", "Just Tap it in", "Daniel Larusso"]
-    ];
-
-    let movieIndex = movies.indexOf(movies);
-    let hintIndex = movies.indexOf(hints);
-    showClue.innerHTML = "Clue: - " + hints
-[movieIndex][hintIndex];
-};
