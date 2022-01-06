@@ -1,7 +1,7 @@
 /*----- constants -----*/
 
 const movies = [
-    "the matrix", "castaway", "ironman", "spiderman", "badboys", "pulpfiction", "aceventura", "happygilmore", "karatekid"
+    "thematrix", "castaway", "ironman", "spiderman", "badboys", "pulpfiction", "aceventura", "happygilmore", "karatekid"
 ]
 
 /*----- app's state (variables) -----*/
