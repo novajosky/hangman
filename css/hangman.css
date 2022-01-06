@@ -2,8 +2,14 @@
     font-family: londrina shadow;
     justify-content: center;
     text-align: center;
-    background-color: rgb(9, 231, 231);
+}
 
+body {
+    background: url(https://media.istockphoto.com/photos/green-chalkboard-background-picture-id1150072676?k=20&m=1150072676&s=170667a&w=0&h=rXJox0Qx3Q16sxwyhXBTDczqb1NOeAs7rvh0Lhn_xrg=);
+}
+
+div {
+    color: white;
 }
 
 button:hover {

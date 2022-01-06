@@ -1,7 +1,7 @@
 /*----- constants -----*/
 
 const movies = [
-    "thematrix", "castaway", "ironman", "spiderman", "badboys", "pulpfiction", "aceventura", "happygilmore", "karatekid"
+    "the matrix", "castaway", "ironman", "spiderman", "badboys", "pulpfiction", "aceventura", "happygilmore", "karatekid"
 ]
 
 /*----- app's state (variables) -----*/
@@ -18,7 +18,7 @@ let getHint = document.getElementById("hint");
 let showClue = document.getElementById("clue");
 
 function randomWord() {
-    answer = movies[Math.floor(Math.random() * movies.length)];
+    answer = movies[Math.floor(Math.random() * movies.length)]; 
 }
 
 function generateButtons() {
