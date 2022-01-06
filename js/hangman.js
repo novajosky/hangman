@@ -81,11 +81,11 @@ function guessedWord() {
 function updateMistakes() {
   document.getElementById('mistakes').innerHTML = mistakes;
 }
-
+//hint needs to be changed to function declaration
 hint.onclick = function() {
     let hints = ["red or blue pill", "Tom Hanks", "Tony Stark", "Peter Parker", "whatchu gonna do", "Tarantino", "Alrighty Then!", "Just Tap it in", "Daniel Larusso"];
     let movieIndex = movies.indexOf(answer);
-    showClue.innerHTML = "Clue: " + hints[movieIndex];
+    showClue.innerHTML = hints[movieIndex];
 };
 
 function reset() {
@@ -97,7 +97,6 @@ function reset() {
   guessedWord();
   updateMistakes();
   generateButtons();
-  
 }
 
 document.getElementById('maxWrong').innerHTML = maxGuesses;

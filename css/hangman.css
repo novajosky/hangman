@@ -2,12 +2,11 @@
     font-family: londrina shadow;
     justify-content: center;
     text-align: center;
-}
+    background-color: rgb(9, 231, 231);
 
-.hangman div {
-    background: #000;
 }
 
 button:hover {
     background-color: tomato;
 }
+
