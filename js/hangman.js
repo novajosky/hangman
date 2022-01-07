@@ -83,7 +83,7 @@ function updateMistakes() {
 }
 
 hint.onclick = function() {
-    let hints = ["red or blue pill", "Tom Hanks", "Tony Stark", "Peter Parker", "whatchu gonna do", "Tarantino", "Alrighty Then!", "Just Tap it in", "Daniel Larusso", "I am your father!", "Dug the dog", "mob movie", "we're gonna need a bigger boat"];
+    let hints = ["hmm, upgrades", "WILSON!!", "Tony Stark", "Peter Parker", "whatchu gonna do", "Tarantino", "Alrighty Then!", "Just Tap it in", "wax on, wax off", "I am your father!", "Dug the dog", "mob movie", "we're gonna need a bigger boat"];
     let movieIndex = movies.indexOf(answer);
     showClue.innerHTML = hints[movieIndex];
 };
