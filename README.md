@@ -7,7 +7,7 @@
 This game was created using HTML CSS and Javascript without the use of libraries or API's.
 
 ## Getting Started
-https://novajosky.github.io/hangman/
+https://novajosky.github.io/hangman/ <br>
 In this game, the user clicks on the letters they think may be in the secret word. When each letter is clicked, the computer will detemine if the letter is in the secret word and add it or the computer will add a body part to the hangman and the wrong guess counter will increase letting the user know how many tries they have left. Icluded is a hint button for the user to fall back on to help figure out the secret word.
 
 ## Next Steps
