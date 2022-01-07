@@ -1,7 +1,7 @@
 # Hangman
  This project is Hangman. In this Hangman game, the user has to try to guess the secret word that is randomly selected by the computer. The user will have 10 incorrect guesses before the game is lost.
 
-<img src="https://i.imgur.com/vDqlkcq.png" alt="wireframe"
+<img src="https://i.imgur.com/vDqlkcq.png" alt="wireframe"/>
 
 ## Technologies used
 This game was created using HTML CSS and Javascript without the use of libraries or API's.

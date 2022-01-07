@@ -1,0 +1,11 @@
+The game will generate a word using a randomWord function using math.floor(math.random()).
+Let guessed will keep track of the users guesses and wrong guesses will be added to maxGuesses while correct guesses will be added to the board.
+The function handleGuess will determine wether the guess is correct or incorrect using if else statements and add each result by 1
+Upon wrong guesses the hangman picture will change to the next slide including a body part of the avatar.
+checkifgamewon and checkifgamelost will iterate after every choice and will ultimately tell the user if they win or lose.
+Hint is added to the board to allow the user to get a clue upon onclick.
+Reset is available to allow the user to restart the game with a new secret word onclick.
+
+
+
+

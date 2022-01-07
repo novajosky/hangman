@@ -81,7 +81,7 @@ function guessedWord() {
 function updateMistakes() {
   document.getElementById('mistakes').innerHTML = mistakes;
 }
-//hint needs to be changed to function declaration
+
 hint.onclick = function() {
     let hints = ["red or blue pill", "Tom Hanks", "Tony Stark", "Peter Parker", "whatchu gonna do", "Tarantino", "Alrighty Then!", "Just Tap it in", "Daniel Larusso", "I am your father!", "Dug the dog", "mob movie", "we're gonna need a bigger boat"];
     let movieIndex = movies.indexOf(answer);
