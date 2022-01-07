@@ -1,7 +1,7 @@
 /*----- constants -----*/
 
 const movies = [
-    "thematrix", "castaway", "ironman", "spiderman", "badboys", "pulpfiction", "aceventura", "happygilmore", "karatekid"
+    "thematrix", "castaway", "ironman", "spiderman", "badboys", "pulpfiction", "aceventura", "happygilmore", "karatekid", "starwars", "up", "casino", "jaws",
 ]
 
 /*----- app's state (variables) -----*/
@@ -18,7 +18,7 @@ let getHint = document.getElementById("hint");
 let showClue = document.getElementById("clue");
 
 function randomWord() {
-    answer = movies[Math.floor(Math.random() * movies.length)]; 
+    answer = movies[Math.floor(Math.random() * movies.length)];
 }
 
 function generateButtons() {
@@ -83,7 +83,7 @@ function updateMistakes() {
 }
 //hint needs to be changed to function declaration
 hint.onclick = function() {
-    let hints = ["red or blue pill", "Tom Hanks", "Tony Stark", "Peter Parker", "whatchu gonna do", "Tarantino", "Alrighty Then!", "Just Tap it in", "Daniel Larusso"];
+    let hints = ["red or blue pill", "Tom Hanks", "Tony Stark", "Peter Parker", "whatchu gonna do", "Tarantino", "Alrighty Then!", "Just Tap it in", "Daniel Larusso", "I am your father!", "Dug the dog", "mob movie", "we're gonna need a bigger boat"];
     let movieIndex = movies.indexOf(answer);
     showClue.innerHTML = hints[movieIndex];
 };
