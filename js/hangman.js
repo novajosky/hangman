@@ -1,7 +1,7 @@
 /*----- constants -----*/
 
 const movies = [
-    "thematrix", "castaway", "ironman", "spiderman", "badboys", "pulpfiction", "aceventura", "happygilmore", "karatekid", "starwars", "up", "casino", "jaws",
+  "the matrix", "cast away", "iron man", "spider man", "bad boys", "pulp fiction", "ace ventura", "happy gilmore", "karate kid", "star wars", "up", "casino", "jaws",
 ]
 
 /*----- app's state (variables) -----*/
@@ -11,6 +11,12 @@ let maxGuesses = 10;
 let mistakes = 0;
 let guessed = [];
 let wordStatus = null;
+let answerWithoutSpaces = ""
+for (let i = 0; i < answer.length; i++) {
+  if (answer[i] === " ") {
+    answerWithoutSpaces += " ";
+  }
+}
 
 /*----- cached element references -----*/
 
@@ -18,85 +24,93 @@ let getHint = document.getElementById("hint");
 let showClue = document.getElementById("clue");
 
 function randomWord() {
-    answer = movies[Math.floor(Math.random() * movies.length)];
+  answer = movies[Math.floor(Math.random() * movies.length)];
 }
 
 function generateButtons() {
-    let lettersHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
-      `
-        <button
-          class="btn btn-lg btn-primary m-2"
-          id='` + letter + `'
-          onClick="handleGuess('` + letter + `')"
-        >
-          ` + letter + `
-        </button>
-      `).join('');
-  
-    document.getElementById('keyboard').innerHTML = lettersHTML;
-  }
+  let lettersHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
+    `
+      <button
+        class="btn btn-lg btn-primary m-2"
+        id='` + letter + `'
+        onClick="handleGuess('` + letter + `')"
+      >
+        ` + letter + `
+      </button>
+    `).join('');
+
+  document.getElementById('keyboard').innerHTML = lettersHTML;
+}
 
 /*----- event listeners -----*/
 
 /*----- functions -----*/
 
 function handleGuess(chosenLetter) {
-  guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
-  document.getElementById(chosenLetter).setAttribute('disabled', true);
+guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
+document.getElementById(chosenLetter).setAttribute('disabled', true);
 
-  if (answer.indexOf(chosenLetter) >= 0) {
-    guessedWord();
-    checkIfGameWon();
-  } else if (answer.indexOf(chosenLetter) === -1) {
-    mistakes++;
-    updateMistakes();
-    checkIfGameLost();
-    updateHangmanPicture();
-  }
+if (answer.indexOf(chosenLetter) >= 0) {
+  guessedWord();
+  checkIfGameWon();
+} else if (answer.indexOf(chosenLetter) === -1) {
+  mistakes++;
+  updateMistakes();
+  checkIfGameLost();
+  updateHangmanPicture();
+}
 }
 
 function updateHangmanPicture() {
-  document.getElementById('hangman').src = './hmimages/hangman' + mistakes + '.jpg';
+document.getElementById('hangman').src = './hmimages/hangman' + mistakes + '.jpg';
 }
 
-function checkIfGameWon() {
-  if (wordStatus === answer) {
+function checkIfGameWon(){
+  let temp = answer.split("").filter((char) => char !== " ");
+  let guessedletters = guessed.join("");
+  if(temp.every((char) => guessedletters.includes(char))){
     document.getElementById('keyboard').innerHTML = 'YOU WIN!';
   }
 }
 
 function checkIfGameLost() {
-  if (mistakes === maxGuesses) {
-    document.getElementById('wordPlace').innerHTML = 'The answer was: ' + answer;
-    document.getElementById('keyboard').innerHTML = 'YOU LOSE!';
-  }
+if (mistakes === maxGuesses) {
+  document.getElementById('wordPlace').innerHTML = 'The answer was: ' + answer;
+  document.getElementById('keyboard').innerHTML = 'YOU LOSE!';
+}
 }
 
 function guessedWord() {
-  wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
-
+  wordStatus = "";
+  for(let i = 0; i < answer.length; i++){
+    if(answer[i] === " "){
+      wordStatus += "-";
+    }else{
+      wordStatus += (guessed.indexOf(answer[i]) >= 0 ? answer[i] : " _ ");
+    }
+  }
   document.getElementById('wordPlace').innerHTML = wordStatus;
 }
 
 function updateMistakes() {
-  document.getElementById('mistakes').innerHTML = mistakes;
+document.getElementById('mistakes').innerHTML = mistakes;
 }
 
 hint.onclick = function() {
-    let hints = ["hmm, upgrades", "WILSON!!", "Tony Stark", "Peter Parker", "whatchu gonna do", "Tarantino", "Alrighty Then!", "Just Tap it in", "wax on, wax off", "I am your father!", "Dug the dog", "mob movie", "we're gonna need a bigger boat"];
-    let movieIndex = movies.indexOf(answer);
-    showClue.innerHTML = hints[movieIndex];
+  let hints = ["hmm, upgrades", "WILSON!!", "Tony Stark", "Peter Parker", "whatchu gonna do", "Tarantino", "Alrighty Then!", "Just Tap it in", "wax on, wax off", "I am your father!", "Dug the dog", "mob movie", "we're gonna need a bigger boat"];
+  let movieIndex = movies.indexOf(answer);
+  showClue.innerHTML = hints[movieIndex];
 };
 
 function reset() {
-  mistakes = 0;
-  guessed = [];
-  document.getElementById('hangman').src = './hmimages/hangman0.jpg';
+mistakes = 0;
+guessed = [];
+document.getElementById('hangman').src = './hmimages/hangman0.jpg';
 
-  randomWord();
-  guessedWord();
-  updateMistakes();
-  generateButtons();
+randomWord();
+guessedWord();
+updateMistakes();
+generateButtons();
 }
 
 document.getElementById('maxWrong').innerHTML = maxGuesses;
