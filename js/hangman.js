@@ -28,38 +28,43 @@ function randomWord() {
 }
 
 function generateButtons() {
-  let lettersHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
-    `
-      <button
-        class="btn btn-lg btn-primary m-2"
-        id='` + letter + `'
-        onClick="handleGuess('` + letter + `')"
-      >
-        ` + letter + `
-      </button>
-    `).join('');
+  const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  const keyboard = document.getElementById('keyboard');
+  keyboard.innerHTML = '';
 
-  document.getElementById('keyboard').innerHTML = lettersHTML;
+  letters.forEach(letter => {
+    const button = document.createElement('button');
+    button.classList.add('btn', 'btn-lg', 'btn-primary', 'm-2');
+    button.setAttribute('id', letter);
+    button.innerText = letter;
+    button.addEventListener('click', () => handleGuess(letter));
+    keyboard.appendChild(button);
+  });
 }
+
 
 /*----- event listeners -----*/
 
 /*----- functions -----*/
 
 function handleGuess(chosenLetter) {
-guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
-document.getElementById(chosenLetter).setAttribute('disabled', true);
+  guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
+  document.getElementById(chosenLetter).setAttribute('disabled', true);
 
-if (answer.indexOf(chosenLetter) >= 0) {
-  guessedWord();
-  checkIfGameWon();
-} else if (answer.indexOf(chosenLetter) === -1) {
-  mistakes++;
-  updateMistakes();
-  checkIfGameLost();
-  updateHangmanPicture();
+  if (answer.indexOf(chosenLetter) >= 0) {
+    guessedWord();
+    checkIfGameWon();
+  } else if (answer.indexOf(chosenLetter) === -1) {
+    mistakes++;
+    updateMistakes();
+    checkIfGameLost();
+    updateHangmanPicture();
+  }
+
+  // Add the 'guessed' class to the button element
+  document.getElementById(chosenLetter).classList.add('guessed');
 }
-}
+
 
 function updateHangmanPicture() {
 document.getElementById('hangman').src = './hmimages/hangman' + mistakes + '.jpg';
