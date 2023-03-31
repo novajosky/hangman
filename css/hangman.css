@@ -1,5 +1,5 @@
 * {
-    font-family: londrina shadow;
+    font-family: 'Chalkduster';
     justify-content: center;
     text-align: center;
 }
@@ -9,11 +9,95 @@ body {
     background-size: cover;
 }
 
-div {
+div, input {
+    color: rgb(255, 255, 255);
+    border: none;
+    text-shadow: 1px 1px #444;
+}
+
+.btn, #hint {
+    font-family: 'Chalkduster', sans-serif;
+    background-color: transparent;
     color: white;
-}
-
-button:hover {
-    background-color: tomato;
-}
-
+    border: none;
+    font-size: 18px;
+    margin: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover, #hint:hover {
+    background-color: #d3d3d3;
+  }
+  
+  .btn:active, #hint:active {
+    transform: scale(0.95);
+  }
+  
+  button:disabled {
+    background-color: transparent;
+    color: #716969;
+    text-decoration: line-through;
+    text-decoration-style: double;
+    text-decoration-color: #fff;
+  }
+  
+  
+  .btn:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(2) translateX(-100%);
+    background-color: #000000;
+    opacity: 0.2;
+    transition: all 0.3s ease;
+  }
+  
+  .btn:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border-top: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover:before,
+  .btn:hover:after {
+    transform: scale(1) translateX(0%);
+    opacity: 0.5;
+  }
+  
+  .btn:active:before,
+  .btn:active:after {
+    opacity: 0;
+  }
+  
+  .btn:disabled:before,
+  .btn:disabled:after {
+    opacity: 0;
+    background-color: #a9a9a9;
+  }
+  
+  .btn.disabled:before,
+  .btn.disabled:after {
+    opacity: 0;
+    background-color: #a9a9a9;
+  }
+  
+  .btn.guessed:before {
+    opacity: 1;
+  }
+  
+  .btn.guessed:after {
+    opacity: 0.5;
+  }
