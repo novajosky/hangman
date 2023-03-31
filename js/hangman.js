@@ -111,6 +111,7 @@ randomWord();
 guessedWord();
 updateMistakes();
 generateButtons();
+showClue.innerHTML = '';
 }
 
 document.getElementById('maxWrong').innerHTML = maxGuesses;

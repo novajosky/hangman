@@ -1,5 +1,6 @@
+/* Change font to a chalk-like font */
 * {
-    font-family: londrina shadow;
+    font-family: 'Chalkduster';
     justify-content: center;
     text-align: center;
 }
@@ -9,11 +10,16 @@ body {
     background-size: cover;
 }
 
-div {
-    color: white;
+div, button, input {
+    color: rgb(255, 255, 255);
+    border: none;
+    text-shadow: 1px 1px #444;
+}
+
+button {
+    color: black;
 }
 
 button:hover {
-    background-color: tomato;
+    background-color: #666;
 }
-
